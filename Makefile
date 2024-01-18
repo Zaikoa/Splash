@@ -1,4 +1,4 @@
-exec = hello.out
+exec = splash.out
 sources = $(wildcard src/*.c)
 objects = $(sources:.c=.o)
 flags = -g
@@ -11,7 +11,7 @@ $(exec): $(objects)
 
 install:
 	make
-	cp ./hello.out /user/local/bin/hello
+	cp ./splash.out C:/bin/splash
 clean:
 	-rm *.out
 	-rm *o
