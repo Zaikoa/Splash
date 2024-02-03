@@ -1,19 +1,29 @@
 #include <stdio.h>
 #include "include/lexer.h"
+#include "include/AST.h"
+#include "include/parser.h"
+#include "include/visitor.h"
+
+void print_help()
+{
+    printf("Usage:\nsplash.out <filename>");
+    exit(1)
+}
+
 
 int main(int argc, char* argv[])
 {
+    if(argc < 2)
+        print_help();
+
     lexer_T* lexer = init_lexer(
-        "var name = \"john doe\";\n"
-        "print(name);\n"
+        get_file_contents(argv[1])
     );
 
-    token_T* token = (void*)0;
-
-    while((token = lexer_get_next_token(lexer)) != (void*)0)
-    {
-        printf("TOKEN(%d, %s)\n", token->type, token->value);
-    }
+    parser_T* parser = init_parser(lexer);
+    AST_T* root = parser_parse(parser);
+    //visitor_T* visitor = init_visitor();
+    //visitor_visit(visitor, root);
 
     return 0;
 }
