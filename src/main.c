@@ -7,7 +7,7 @@
 void print_help()
 {
     printf("Usage:\nsplash.out <filename>");
-    exit(1)
+    exit(1);
 }
 
 
