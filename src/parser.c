@@ -137,6 +137,24 @@ AST_T* parser_parse_variable_definition(parser_T* parser)
     return variable_definiton;
 }
 
+AST_T* parser_parse_function_definition(parser_T* parser)
+{
+    AST_T* ast = init_ast(AST_FUNCTION_DEFINITION);
+    parser_eat(parser, TOKEN_ID);
+    char* function_name = parser->current_token->value;
+    parser_eat(parser, TOKEN_ID);
+    parser_eat(parser, TOKEN_LPAREN);
+    parser_eat(parser, TOKEN_RPAREN);
+
+    parser_eat(parser, TOKEN_LBRACE);
+
+    ast->function_definition_body = parser_parse_statements(parser);
+
+    parser_eat(parser, TOKEN_RBRACE);
+    
+    return ast;
+    
+}
 AST_T* parser_parse_variable(parser_T* parser)
 {
     char* token_value = parser->current_token->value;
@@ -164,6 +182,10 @@ AST_T* parser_parse_string(parser_T* parser)
 AST_T* parser_parse_id(parser_T* parser)
 {
     if(strcmp(parser->current_token->value, "var") == 0)
+    {
+        return parser_parse_variable_definition(parser);
+    }
+    else if (strcmp(parser->current_token->value, "function") == 0)
     {
         return parser_parse_variable_definition(parser);
     }
