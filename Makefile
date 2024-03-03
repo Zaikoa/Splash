@@ -14,6 +14,5 @@ install:
 	cp ./splash.out C:/bin/splash
 clean:
 	-rm *.out
-	-rm *o
 	-rm src/*.o
 	

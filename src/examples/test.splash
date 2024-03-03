@@ -1,0 +1,5 @@
+function dosomething()
+{
+    print("This is out func");
+};
+dosomething();
