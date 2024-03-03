@@ -1,0 +1,6 @@
+create func_name <var 1, var 2> out var 3: 
+  # logic
+  return 
+;
+
+<var 3 is var 4> and <var isnt var 4>
