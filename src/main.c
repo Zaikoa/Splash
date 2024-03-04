@@ -4,6 +4,7 @@
 #include "include/parser.h"
 #include "include/visitor.h"
 #include "include/io.h"
+
 void print_help()
 {
     printf("Usage:\nsplash.out <filename>");

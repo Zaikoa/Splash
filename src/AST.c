@@ -9,6 +9,9 @@ AST_T* init_ast(int type)
     
     ast->variable_definition_variable_name = (void*)0;
     ast->variable_definition_value = (void*)0;
+    ast->function_definition_args = (void*)0;
+    ast->function_definition_args_size = 0;
+
 
     ast->function_definition_body=(void*)0;
     ast->function_definition_name=(void*)0;

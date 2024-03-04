@@ -1,5 +1,6 @@
 function dosomething()
 {
-    print("This is out func");
-};
+    print("This is our function calling!");
+}
+
 dosomething();
