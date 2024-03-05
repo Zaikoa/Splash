@@ -1,6 +1,7 @@
-function dosomething()
+function dosomething(x)
 {
-    print("This is our function calling!");
-}
+    print(x);
+};
 
-dosomething();
+var name = "name"
+dosomething(name);
